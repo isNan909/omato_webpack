@@ -19,6 +19,11 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    compress: true,
+    port: 9000,
+    stats: "errors-only"
+  },
   plugins: [
     new HtmlWebpackPlugin(),
     new HtmlWebpackPlugin({
