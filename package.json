@@ -1,0 +1,23 @@
+{
+  "name": "webpack_start",
+  "version": "1.0.0",
+  "description": "webpack",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "prod": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishan-me/omato_webpack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ishan-me/omato_webpack/issues"
+  },
+  "homepage": "https://github.com/ishan-me/omato_webpack#readme",
+  "devDependencies": {
+    "webpack": "^2.4.1"
+  }
+}
