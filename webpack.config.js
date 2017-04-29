@@ -1,4 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 
 module.exports = {
@@ -9,7 +10,14 @@ module.exports = {
   },
   module: {
     rules: [
-      {test: /\.scss$/, loaders: ['style-loader','css-loader','sass-loader']}
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          //resolve-url-loader may be chained before sass-loader if necessary
+          use: ['css-loader', 'sass-loader']
+        })
+      }
     ]
   },
   plugins: [
@@ -21,6 +29,7 @@ module.exports = {
       },
       hash : true,
       template: './src/index.ejs', // Load a custom template (ejs by default see the FAQ for details)
-    })
+    }),
+    new ExtractTextPlugin ("app.css")
   ]
 }
