@@ -1,1 +1,3 @@
-console.log ('hi welcome to webpack!');
+const css = require('./app.scss');
+
+console.log('hi welcome to webpack!');
