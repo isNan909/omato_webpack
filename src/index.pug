@@ -1,9 +1,13 @@
 doctype html
 html(lang="en")
   head
-    title= pageTitle
+    //- title= <%= htmlWebpackPlugin.options.title %>
+    title= mytitle
     script(type='text/javascript').
     body
       include includes/header.pug
-      h3 Pug - node template engine index page
+      h3 Pug - node template engine index page !!
+      img(src=require('./images/floor.jpg'))
+
+
       

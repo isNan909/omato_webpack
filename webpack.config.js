@@ -16,18 +16,26 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: ['style-loader','css-loader', 'sass-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          //resolve-url-loader may be chained before sass-loader if necessary
+          use: ['css-loader', 'sass-loader']
+        })
       },
       {
         test: /\.pug$/,
         use: ['pug-loader']
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: ['file-loader?name=[name].[ext]&outputPath=images/']
       }
     ]
   },
   devServer: {
     compress: true,
     port: 9000,
-    hot :true,
+    hot : false,
     stats: "errors-only"
   },
   plugins: [
@@ -54,7 +62,7 @@ module.exports = {
     }),
     new ExtractTextPlugin ({
       filename: 'app.css',
-      disable: true,
+      disable: false,
       allChunks: true
     }),
     new webpack.HotModuleReplacementPlugin(),
