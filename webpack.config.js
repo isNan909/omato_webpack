@@ -19,6 +19,10 @@ module.exports = {
           //resolve-url-loader may be chained before sass-loader if necessary
           use: ['css-loader', 'sass-loader']
         })
+      },
+      {
+        test: /\.pug$/,
+        use: ['pug-loader']
       }
     ]
   },
@@ -36,7 +40,8 @@ module.exports = {
       },
       hash : true,
       excludeChunks: ['contact'],
-      template: './src/index.ejs', // Load a custom template (ejs by default see the FAQ for details)
+      filename: 'index.html',
+      template: './src/index.pug', // Load a custom template (ejs by default see the FAQ for details)
     }),
     new HtmlWebpackPlugin({
       title: 'Contact Page',
@@ -46,7 +51,7 @@ module.exports = {
       hash : true,
       chunks: ['contact'],
       filename: 'contact.html',
-      template: './src/contact.ejs', // Load a custom template (ejs by default see the FAQ for details)
+      template: './src/contact.pug', // Load a custom template (ejs by default see the FAQ for details)
     }),
     new ExtractTextPlugin ("app.css")
   ]
