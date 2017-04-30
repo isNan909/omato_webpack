@@ -1,5 +1,7 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var webpack = require('webpack');
+var path = require("path")
 
 module.exports = {
   entry: {
@@ -14,11 +16,7 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          //resolve-url-loader may be chained before sass-loader if necessary
-          use: ['css-loader', 'sass-loader']
-        })
+        use: ['style-loader','css-loader', 'sass-loader']
       },
       {
         test: /\.pug$/,
@@ -29,6 +27,7 @@ module.exports = {
   devServer: {
     compress: true,
     port: 9000,
+    hot :true,
     stats: "errors-only"
   },
   plugins: [
@@ -53,6 +52,12 @@ module.exports = {
       filename: 'contact.html',
       template: './src/contact.pug', // Load a custom template (ejs by default see the FAQ for details)
     }),
-    new ExtractTextPlugin ("app.css")
+    new ExtractTextPlugin ({
+      filename: 'app.css',
+      disable: true,
+      allChunks: true
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
   ]
 }
