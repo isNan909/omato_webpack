@@ -30,7 +30,7 @@ module.exports = {
         test: /\.(jpg|png|svg|gif)$/,
         use:
         [
-          'file-loader?name=[name].[ext]&publicPath=images/&outputPath=images/', // needs to fix the paths for images
+          'file-loader?name=[name].[ext]&outputPath=images/', // public path is excluded written in docs
           {
             loader: 'image-webpack-loader',
             options: {}
