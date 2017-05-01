@@ -20,6 +20,7 @@
   "homepage": "https://github.com/ishan-me/omato_webpack#readme",
   "devDependencies": {
     "bootstrap-loader": "^2.0.0",
+    "bootstrap-sass": "^3.3.7",
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
