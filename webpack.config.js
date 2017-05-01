@@ -27,12 +27,17 @@ module.exports = {
         use: ['pug-loader']
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpg|png|svg|gif)$/,
         use:
         [
-          'file-loader?name=images/[name].[ext]' //image-webpack-loader needs to be added
+          // 'file-loader?name=[name].[ext]&outputPath=images/',
+          'file-loader?name=images/[name].[ext]', // public path is excluded written in docs
+          {
+            loader: 'image-webpack-loader',
+            options: {}
+          }
         ]
-      }
+      }﻿
     ]
   },
   devServer: {
