@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ishan-me/omato_webpack#readme",
   "devDependencies": {
+    "bootstrap-loader": "^2.0.0",
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
@@ -28,9 +29,11 @@
     "node-sass": "^4.5.2",
     "pug": "^2.0.0-beta.12",
     "pug-loader": "^2.3.0",
+    "resolve-url-loader": "^2.0.2",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.5"
   }
