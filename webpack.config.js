@@ -6,7 +6,7 @@ var path = require("path")
 module.exports = {
   entry: {
     app: './src/app.js',
-    contact: './src/contact.js'
+    contact: './src/contact.js',
   },
   output: {
     path: __dirname + '/dist',
@@ -30,14 +30,16 @@ module.exports = {
         test: /\.(jpg|png|svg|gif)$/,
         use:
         [
-          // 'file-loader?name=[name].[ext]&outputPath=images/',
-          'file-loader?name=images/[name].[ext]', // public path is excluded written in docs
+          'file-loader?name=[name].[ext]&outputPath=images/', // public path is excluded written in docs
           {
             loader: 'image-webpack-loader',
             options: {}
           }
         ]
-      }﻿
+      }﻿,
+      { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
+      { test: /\.(ttf|eot)$/, loader: 'file-loader' },
+      { test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports-loader?jQuery=jquery' }
     ]
   },
   devServer: {
